@@ -60,9 +60,9 @@ const loginUser = async (req, res) => {
 };
 
 const logoutUser = async (req, res) => {
-  await Token.findOneAndDelete({ user: req.user.userId });
   res.clearCookie("accessToken");
   res.clearCookie("refreshToken");
+  await Token.findOneAndDelete({ user: req.user.userId });
 
   res.status(StatusCodes.OK).json({ msg: "Logout" });
 };
