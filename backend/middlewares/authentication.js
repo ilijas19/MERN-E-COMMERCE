@@ -5,24 +5,32 @@ import { StatusCodes } from "http-status-codes";
 
 export const authenticateUser = async (req, res, next) => {
   const { accessToken, refreshToken } = req.signedCookies;
-  if (accessToken) {
-    const decoded = verifyJwt(accessToken);
-    req.user = decoded.user;
-    return next();
-  }
-  if (refreshToken) {
-    const decoded = verifyJwt(refreshToken);
-    const token = await Token.findOne({
-      user: decoded.user.userId,
-      refreshToken: decoded.refreshToken,
-    });
-    if (!token || !token?.isValid) {
-      throw new CustomError.UnauthenticatedError("Authentication failed");
+
+  try {
+    if (accessToken) {
+      const decoded = verifyJwt(accessToken);
+      req.user = decoded.user;
+      return next();
     }
 
-    req.user = decoded.user;
-    return next();
+    if (refreshToken) {
+      const decoded = verifyJwt(refreshToken);
+      const token = await Token.findOne({
+        user: decoded.user.userId,
+        refreshToken: decoded.refreshToken,
+      });
+
+      if (!token || !token?.isValid) {
+        throw new CustomError.UnauthenticatedError("Authentication failed");
+      }
+
+      req.user = decoded.user;
+      return next();
+    }
+  } catch (error) {
+    throw new CustomError.UnauthenticatedError("Authentication failed");
   }
+
   throw new CustomError.UnauthenticatedError("Authentication failed");
 };
 
