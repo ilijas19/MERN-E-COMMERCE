@@ -40,7 +40,7 @@ app.use(fileUpload({ useTempFiles: true }));
 // CORS
 app.use(
   cors({
-    origin: "https://mern-e-commerce-store-frontend.onrender.com",
+    origin: "https://mern-ecomm19.netlify.app",
     credentials: true,
     methods: ["GET", "POST", "PUT", "DELETE"],
     allowedHeaders: ["Content-Type", "Authorization"],
