@@ -1,0 +1,29 @@
+@import "tailwindcss";
+
+body {
+  background-color: rgb(3, 3, 15);
+}
+.scrollbar::-webkit-scrollbar {
+  width: 8px;
+  height: 8px;
+}
+
+.scrollbar::-webkit-scrollbar-track {
+  background: #374151; /* Track color (gray-700) */
+  border-radius: 4px;
+}
+
+.scrollbar::-webkit-scrollbar-thumb {
+  background: #6b7280; /* Thumb color (gray-500) */
+  border-radius: 4px;
+}
+
+.scrollbar::-webkit-scrollbar-thumb:hover {
+  background: #9ca3af; /* Thumb hover color (gray-400) */
+}
+
+/* Firefox scrollbar styling */
+.scrollbar {
+  scrollbar-width: thin;
+  scrollbar-color: #6b7280 #374151; /* Thumb and track color */
+}
