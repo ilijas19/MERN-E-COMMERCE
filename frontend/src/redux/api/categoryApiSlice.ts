@@ -4,8 +4,6 @@ import { Category, Product } from "../../types";
 type MessageResult = {
   msg: string;
 };
-
-//
 type CreateArg = {
   name: string;
 };
