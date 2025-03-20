@@ -42,11 +42,7 @@ export const getUserAuthenticate = async (req, res, next) => {
     if (!token || !token?.isValid) {
       return res.status(StatusCodes.OK).json({ currentUser: null });
     }
-    attachCookiesToResponse({
-      res,
-      user: decoded.user,
-      refreshToken: token.refreshToken,
-    });
+
     req.user = decoded.user;
     return next();
   }
