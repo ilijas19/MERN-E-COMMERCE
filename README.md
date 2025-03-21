@@ -13,6 +13,9 @@ This is a **full-stack MERN** (**MongoDB, Express, React, Node.js, TypeScript**)
 - **Cart functionality**  
 - **Best practices & modular, reusable code**  
 
+## Test Admin Account
+- noname@gmail.com
+- 123
 ---
 
 ## ✨ Features  
