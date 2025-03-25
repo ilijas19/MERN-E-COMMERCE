@@ -12,22 +12,19 @@ export const attachCookiesToResponse = ({ res, user, refreshToken }) => {
   const accessTokenJwt = createJwt({ payload: { user } });
   const refreshTokenJwt = createJwt({ payload: { user, refreshToken } });
 
-  const oneDay = 1000 * 60 * 60 * 24;
-  const oneWeek = 1000 * 60 * 60 * 24 * 7;
-
   res.cookie("accessToken", accessTokenJwt, {
     httpOnly: true,
     signed: true,
     secure: process.env.NODE_ENV === "production",
-    sameSite: "None",
-    maxAge: oneDay,
+    maxAge: 3600000,
+    sameSite: "strict",
   });
 
   res.cookie("refreshToken", refreshTokenJwt, {
     httpOnly: true,
     signed: true,
     secure: process.env.NODE_ENV === "production",
-    sameSite: "None",
-    maxAge: oneWeek,
+    maxAge: 3600000 * 24,
+    sameSite: "strict",
   });
 };

@@ -62,13 +62,15 @@ const loginUser = async (req, res) => {
 const logoutUser = async (req, res) => {
   res.clearCookie("accessToken", {
     httpOnly: true,
+    signed: true,
     secure: process.env.NODE_ENV === "production",
-    sameSite: "None",
+    sameSite: "strict",
   });
   res.clearCookie("refreshToken", {
     httpOnly: true,
+    signed: true,
     secure: process.env.NODE_ENV === "production",
-    sameSite: "None",
+    sameSite: "strict",
   });
 
   await Token.findOneAndDelete({ user: req.user.userId });

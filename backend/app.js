@@ -6,7 +6,6 @@ import { v2 as cloudinary } from "cloudinary";
 import fileUpload from "express-fileupload";
 import cors from "cors";
 import path from "path";
-import { fileURLToPath } from "url";
 
 // Database
 import connectDb from "./db/connectDb.js";
@@ -30,6 +29,7 @@ cloudinary.config({
 });
 
 const app = express();
+const __dirname = path.resolve();
 
 // Middleware
 app.use(express.json());
@@ -40,13 +40,12 @@ app.use(fileUpload({ useTempFiles: true }));
 // CORS
 app.use(
   cors({
-    origin: "https://mern-ecomm19.netlify.app",
-    credentials: true,
-    methods: ["GET", "POST", "PUT", "DELETE"],
+    origin: ["https://mern-ecomm19.netlify.app", "http://localhost:5173"],
+    methods: ["GET", "POST", "PATCH", "DELETE"],
     allowedHeaders: ["Content-Type", "Authorization"],
+    credentials: true,
   })
 );
-app.options("*", cors());
 
 // API Routes
 app.use("/api/v1/user", UserRouter);
@@ -55,10 +54,13 @@ app.use("/api/v1/product", ProductRouter);
 app.use("/api/v1/upload", UploadRouter);
 app.use("/api/v1/order", OrderRouter);
 
-app.get("/", (req, res) => {
-  res.send("live");
-});
+if (process.env.NODE_ENV === "production") {
+  app.use(express.static(path.join(__dirname, "/frontend/dist")));
 
+  app.get("*", (req, res) => {
+    res.sendFile(path.resolve(__dirname, "frontend", "dist", "index.html"));
+  });
+}
 // Error Handling
 app.use(notFound);
 app.use(errorHandler);
