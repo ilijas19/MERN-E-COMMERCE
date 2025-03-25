@@ -3,18 +3,15 @@
     "tsBuildInfoFile": "./node_modules/.tmp/tsconfig.node.tsbuildinfo",
     "target": "ES2022",
     "lib": ["ES2023"],
-    "module": "Node16",
+    "module": "ESNext",
     "skipLibCheck": true,
 
     /* Bundler mode */
-    "moduleResolution": "node16",
+    "moduleResolution": "bundler",
     "allowImportingTsExtensions": true,
     "isolatedModules": true,
     "moduleDetection": "force",
     "noEmit": true,
-
-    /* Fix for default imports */
-    "allowSyntheticDefaultImports": true,
 
     /* Linting */
     "strict": true,
@@ -23,9 +20,5 @@
     "noFallthroughCasesInSwitch": true,
     "noUncheckedSideEffectImports": true
   },
-  "include": [
-    "vite.config.ts", // Include vite.config.ts here
-    "src", // Include your source files
-    "src/.d.ts" // Include global.d.ts file
-  ]
+  "include": ["vite.config.ts"]
 }
