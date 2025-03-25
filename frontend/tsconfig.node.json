@@ -26,6 +26,6 @@
   "include": [
     "vite.config.ts", // Include vite.config.ts here
     "src", // Include your source files
-    "src/global.d.ts" // Include global.d.ts file
+    "src/.d.ts" // Include global.d.ts file
   ]
 }
