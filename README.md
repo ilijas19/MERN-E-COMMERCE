@@ -1,9 +1,4 @@
 # 🚀 MERN E-Commerce  
-
-## 🌐 Live Demo  
-**Frontend:** [mern-ecomm19.netlify.app](https://mern-ecomm19.netlify.app)  
-**Backend:** [mern-e-commerce-backend-nc7c.onrender.com](https://mern-e-commerce-backend-nc7c.onrender.com) _(hosted on Render's free service, may take time to load)_  
-
 ---
 
 ## 📌 Overview  
