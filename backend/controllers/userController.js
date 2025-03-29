@@ -50,7 +50,7 @@ const loginUser = async (req, res) => {
     //no existing token
     const ip = req.ip;
     const userAgent = req.headers["user-agent"];
-    const refreshToken = crypto.randomBytes(40);
+    const refreshToken = crypto.randomBytes(40).toString("hex");
     await Token.create({ user: tokenUser.userId, ip, refreshToken, userAgent });
     attachCookiesToResponse({ res, user: tokenUser, refreshToken });
     return res
