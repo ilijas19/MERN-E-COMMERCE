@@ -1,35 +1,44 @@
-# 🚀 MERN E-Commerce  
-
-## 🌐 Live Demo  
-**Frontend:** [mern-ecomm19.netlify.app](https://mern-ecomm19.netlify.app)  
-**Backend:** [mern-e-commerce-backend-nc7c.onrender.com](https://mern-e-commerce-backend-nc7c.onrender.com) _(hosted on Render's free service, may take time to load)_  
+# MERN E-Commerce App
 
 ---
 
-## 📌 Overview  
-This is a **full-stack MERN** (**MongoDB, Express, React, Node.js, TypeScript**) e-commerce application with:  
-- **User authentication** (JWT access & refresh tokens)  
-- **Product management**  
-- **Cart functionality**  
-- **Best practices & modular, reusable code**  
+## 🚀 Features
 
-## Test Admin Account
-- noname@gmail.com
-- 123
----
-
-## ✨ Features  
-
-### 🔹 Frontend (React + TypeScript)  
-- ✅ Built with **React & TypeScript**  
-- ✅ **Redux Toolkit** for state management  
-- ✅ Fully responsive design  
-
-### 🔹 Backend (Node.js + Express)  
-- ✅ **JWT Authentication** (access & refresh tokens)  
-- ✅ **MongoDB & Mongoose** for database management  
-- ✅ **Cloudinary** for image uploads  
-- ✅ **Modular & reusable code structure**  
-- ✅ **RESTful API** with proper error handling  
+- **🛒 Product Management** – View, search, and filter products with details like name, price, description, and image
+- **📦 Cart System** – Add to cart, remove items, and adjust quantity dynamically
+- **🧑‍💼 User Authentication** – Full user registration, login/logout, and protected routes
+- **🛍️ Admin Dashboard** – Manage products, users, and orders (admin-only access)
+- **🧾 Order System** – Users can place orders, track them, and view order history
+- **🔐 Secure Auth Flow** – JWT-based authentication with role-based access (admin/user)
 
 ---
+
+## 🛠️ Tech Stack
+
+**Frontend**: React, React Router, Redux Toolkit, Tailwind CSS  
+**Backend**: Node.js, Express  
+**Database**: MongoDB, Mongoose  
+**Authentication**: JWT, Bcrypt  
+**API Handling**: Redux Toolkit Query
+
+---
+
+## 📸 Screenshots
+
+![Homepage](/screenshots/home.png)  
+_Homepage with product listings_
+
+![Product Details](/screenshots/product2.png)  
+_Product details page_
+
+![Cart](/screenshots/cart.png)  
+_Responsive shopping cart view_
+
+![Admin Panel](/screenshots/admin-dash.png)  
+_Admin product management_
+
+![Shop](/screenshots/shop.png)  
+_Shop Page_
+
+![Order Summary](/screenshots/summary.png)  
+_Order summary after checkout_
